@@ -6,11 +6,12 @@ go: 1.9.x
 install: true
 before_install:
 - docker pull prozas79/travis:03apr18
-- ps -a
+- docker ps -a
 script:
 - mkdir build
 - cd build
 - $TRAVIS_BUILD_DIR/configure
+- make get
 - make
 notifications:
   email:
