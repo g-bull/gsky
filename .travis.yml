@@ -14,3 +14,8 @@ script:
   - ./configure
   - make get
   - make all
+
+notifications:
+  email:
+    on_success: always
+    on_failure: always
