@@ -2,7 +2,7 @@ language: go
 sudo: required
 go: 1.9.x
 install: true
-pre_install:
+before_install:
 - docker pull prozas79/travis:03apr18
 - ps -a
 script:
