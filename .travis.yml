@@ -6,13 +6,14 @@ go: 1.9.x
 install: true
 before_install:
 - docker pull prozas79/travis:03apr18
+- docker run -d --name travis -t prozas79/travis:03apr18 bash
 - docker ps -a
 script:
-- mkdir build
-- cd build
-- $TRAVIS_BUILD_DIR/configure
-- make get
-- make
+- docker exec travis mkdir build
+- docker exec travis cd build
+- docker exec travis $TRAVIS_BUILD_DIR/configure
+- docker exec make get
+- docker exec make
 notifications:
   email:
     on_success: always
