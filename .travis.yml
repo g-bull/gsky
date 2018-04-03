@@ -8,7 +8,10 @@ before_install:
 - docker pull prozas79/travis:03apr18
 - ps -a
 script:
-- uptime
+- mkdir build
+- cd build
+- $TRAVIS_BUILD_DIR/configure
+- make
 notifications:
   email:
     on_success: always
