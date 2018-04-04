@@ -14,7 +14,7 @@ LDFLAGS="-X=_$(srcdir)/utils.LibexecDir=${libexecdir} -X=_$(srcdir)/grpc_server/
 GOBUILD = CGO_CFLAGS=$(CGO_CFLAGS) CGO_LDFLAGS=$(CGO_LDFLAGS) go build -ldflags=$(LDFLAGS)
 
 all:
-	go get
+	CGO_LDFLAGS=$(CGO_LDFLAGS) CGO_CFLAGS=$(CGO_CFLAGS) go get -t ./...
 	$(GOBUILD) -o gsky-rpc grpc_server/grpc_server.go
 	$(GOBUILD) -o gsky-gdal-process grpc_server/gdal_process.go
 	$(GOBUILD) -o gsky-ows ows.go
