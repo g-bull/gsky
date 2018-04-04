@@ -1,11 +1,9 @@
 language: go
 go: 1.9.x
-install: true
-script:
-- wget -O- http://ozlabs.org/~bje/usrlocal.tar.gz | tar xz
-- ./configure --with-gdal=$PWD/usr/local
-- make get
-- make all
+before_install:
+- wget -O- http://ozlabs.org/~bje/usrlocal.tar.gz | tar Cxz $HOME
+before_script:
+- ./configure --with-gdal=$HOME/usr/local
 notifications:
   email:
     on_success: always
