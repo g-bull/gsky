@@ -1,12 +1,9 @@
 language: go
 go: 1.9.x
 install: true
-sudo: required
 script:
-- wget http://ozlabs.org/~bje/usrlocal.tar.gz
-- sudo tar Cxfz / usrlocal.tar.gz
-- sudo ldconfig
-- ./configure
+- wget -O- http://ozlabs.org/~bje/usrlocal.tar.gz | tar xz
+- ./configure --with-gdal=$PWD/usr/local
 - make get
 - make all
 notifications:
