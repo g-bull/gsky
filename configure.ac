@@ -9,6 +9,7 @@ AC_ARG_WITH([gdal],
             [with_gdal=yes])
 
 AS_IF([test "x$with_gdal" != xyes],
-	    AC_SUBST(CGO_CFLAGS, "-I$with_gdal/include -L$with_gdal/lib"))
+	    AC_SUBST(CGO_CFLAGS, "-I$with_gdal/include")
+	    AC_SUBST(CGO_LDFLAGS, "-L$with_gdal/lib"))
 
 AC_OUTPUT(Makefile)

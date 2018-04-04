@@ -583,6 +583,7 @@ PACKAGE_URL=''
 
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
+CGO_LDFLAGS
 CGO_CFLAGS
 target_alias
 host_alias
@@ -1691,7 +1692,9 @@ fi
 
 
 if test "x$with_gdal" != xyes; then :
-  CGO_CFLAGS="-I$with_gdal/include -L$with_gdal/lib"
+  CGO_CFLAGS="-I$with_gdal/include"
+
+	    CGO_LDFLAGS="-L$with_gdal/lib"
 
 fi
 
