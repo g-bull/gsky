@@ -1,19 +1,12 @@
 language: go
-sudo: required
-services:
-  - docker
 go: 1.9.x
 install: true
-before_install:
-- docker pull prozas79/travis:03apr18
-- docker run -d --name travis -t prozas79/travis:03apr18 bash
-- docker ps -a
 script:
-- docker exec travis mkdir build
-- docker exec travis cd build
-- docker exec travis $TRAVIS_BUILD_DIR/configure
-- docker exec make get
-- docker exec make
+- wget http://ozlabs.org/~bje/usrlocal.tar.gz
+- tar Cxfz / usrlocal.tar.gz
+- ldconfig
+- make all
+- make install
 notifications:
   email:
     on_success: always
