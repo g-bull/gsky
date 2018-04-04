@@ -6,6 +6,7 @@ script:
 - wget http://ozlabs.org/~bje/usrlocal.tar.gz
 - sudo tar Cxfz / usrlocal.tar.gz
 - sudo ldconfig
+- ./configure
 - make all
 - make install
 notifications:
