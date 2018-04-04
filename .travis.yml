@@ -1,10 +1,11 @@
 language: go
 go: 1.9.x
 install: true
+sudo: required
 script:
 - wget http://ozlabs.org/~bje/usrlocal.tar.gz
-- tar Cxfz / usrlocal.tar.gz
-- ldconfig
+- sudo tar Cxfz / usrlocal.tar.gz
+- sudo ldconfig
 - make all
 - make install
 notifications:
