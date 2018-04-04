@@ -1,5 +1,9 @@
 language: go
 go: 1.9.x
+addons:
+  apt:
+    packages:
+    - libnetcdf-dev
 before_install:
 - wget -O- http://ozlabs.org/~bje/usrlocal.tar.gz | tar Cxz $HOME
 install:
