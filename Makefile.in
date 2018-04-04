@@ -17,11 +17,7 @@ all: $(PROGS)
 
 # Implicit rule for .go source files.
 % :: %.go
-	go build -ldflags=$(LDFLAGS) -o $@ $<
-
-# Override rule for gdal_process.go to pass cgo flags.
-grpc_server/gdal_process :: grpc_server/gdal_process.go
-	CGO_FLAGS=$(CGO_CFLAGS) go build -ldflags=$(LDFLAGS) -o $@ $<
+	CGO_CFLAGS=$(CGO_CFLAGS) go build -ldflags=$(LDFLAGS) -o $@ $<
 
 get:
 	go get bitbucket.org/monkeyforecaster/geometry
