@@ -13,13 +13,15 @@ LDFLAGS="-X=_$(srcdir)/utils.LibexecDir=${libexecdir} -X=_$(srcdir)/grpc_server/
 	-X=_$(srcdir)/utils.EtcDir=$(sysconfdir) -X=_$(srcdir)/utils.DataDir=${datarootdir}/gsky"
 GOBUILD = CGO_CFLAGS=$(CGO_CFLAGS) CGO_LDFLAGS=$(CGO_LDFLAGS) go build -ldflags=$(LDFLAGS)
 
-all:
-	CGO_LDFLAGS=$(CGO_LDFLAGS) CGO_CFLAGS=$(CGO_CFLAGS) go get -t ./...
+all:	get
 	$(GOBUILD) -o gsky-rpc grpc_server/grpc_server.go
 	$(GOBUILD) -o gsky-gdal-process grpc_server/gdal_process.go
 	$(GOBUILD) -o gsky-ows ows.go
 	$(GOBUILD) -o gsky-crawl crawl/crawl.go
 	$(GOBUILD) -o accept acceptance_tests/accept.go
+
+get:
+	CGO_LDFLAGS=$(CGO_LDFLAGS) CGO_CFLAGS=$(CGO_CFLAGS) go get -t ./...
 
 # Note: install(1) can't deal with directories as source, so use cp -r.
 install:

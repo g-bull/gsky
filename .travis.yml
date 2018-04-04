@@ -7,10 +7,11 @@ addons:
     - libhdf5-dev
 before_install:
 - wget -O- http://ozlabs.org/~bje/usrlocal.tar.gz | tar Cxz $HOME
-install:
-- go get
-before_script:
 - ./configure --with-gdal=$HOME/usr/local
+install:
+- make get
+script:
+- make
 notifications:
   email:
     on_success: always
