@@ -7,8 +7,8 @@ script:
 - sudo tar Cxfz / usrlocal.tar.gz
 - sudo ldconfig
 - ./configure
+- make get
 - make all
-- make install
 notifications:
   email:
     on_success: always
