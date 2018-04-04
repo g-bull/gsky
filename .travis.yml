@@ -4,6 +4,7 @@ addons:
   apt:
     packages:
     - libnetcdf-dev
+    - libhdf5-dev
 before_install:
 - wget -O- http://ozlabs.org/~bje/usrlocal.tar.gz | tar Cxz $HOME
 install:
