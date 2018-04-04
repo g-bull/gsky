@@ -2,6 +2,8 @@ language: go
 go: 1.9.x
 before_install:
 - wget -O- http://ozlabs.org/~bje/usrlocal.tar.gz | tar Cxz $HOME
+install:
+- go get
 before_script:
 - ./configure --with-gdal=$HOME/usr/local
 notifications:
